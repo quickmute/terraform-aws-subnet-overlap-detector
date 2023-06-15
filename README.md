@@ -12,13 +12,15 @@ Given two Subnet (1 and 2) where X is the starting long decimal and Y is the end
 For example, X1 is the Starting of first CIDR and X2 is the Starting of second CIDR. 
 So...
 if X1 <= X2 AND X2 <= Y1 then it overlaps regardless of Y2
+```
 ONE     X========================Y
 TWO         X========================Y
-
+```
 if X1 >= X2 AND X1 <= Y2 then it overlaps regardless of Y1
+```
 ONE                 X=============Y
 TWO         X========================Y
-
+```
 All else there is no overlap between 1 and 2 CIDRs
 
 ## How to efficiently compare between all CIDRs in a list
