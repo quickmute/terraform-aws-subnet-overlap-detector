@@ -38,7 +38,7 @@ Terraform Code for full pair compare of each items in a list
 item => [for item2 in local.all_vpc_cidrs : item2]
 ```
 
-But if we use terraform's `slice` function to use less of the second list during the loop of the first list, then we can cut down the search to following (42% decrease):
+But if we use terraform's `slice` function to use less of the second list during the loop of the first list, then we can cut down the search to following (42% decrease) by skipping the duplicate ones:
 ```
 1 2 3 4 5 6
   2 3 4 5 6
@@ -47,7 +47,7 @@ But if we use terraform's `slice` function to use less of the second list during
         5 6
           6
 ```
-Terraform Code for full pair compare of each items in a list
+Terraform Code for pair compare without duplicates of each items in a list
 ```
 item => [for item2 in slice(local.all_vpc_cidrs, index(local.all_vpc_cidrs, item), length(local.all_vpc_cidrs)) : item2
 ```
