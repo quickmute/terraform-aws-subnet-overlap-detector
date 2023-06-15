@@ -1,6 +1,8 @@
 # terraform-aws-subnet-overlap-detector
 Terraform code to detect if list of subnets have any overlaps. Pass in a list of Subnets in CIDR notation in Decimal such as `10.10.0.0/24` and it will return a map where the key is the Decimal CIDR and the value is a list of any overlapping CIDRs. 
 
+This is an exercise in using Terraform's built-in functions and for-each loop. I could have just used local-exec or remote-exec and written this logic elsewhere else with other languages more suitable for this. 
+
 # Dependency
 This module uses the module that converts Decimal CIDR to its long decimal and binary notations. 
 
