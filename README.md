@@ -49,5 +49,5 @@ But if we use terraform's `slice` function to use less of the second list during
 ```
 Terraform Code for full pair compare of each items in a list
 ```
-slice(local.all_vpc_cidrs,index(local.all_vpc_cidrs,item),length(local.all_vpc_cidrs))
+item => [for item2 in slice(local.all_vpc_cidrs, index(local.all_vpc_cidrs, item), length(local.all_vpc_cidrs)) : item2
 ```
